@@ -1,0 +1,13 @@
+{
+  "welcome": "Bienvenido a Fako Dallas",
+  "description": "Un inicio de Next.js con Tailwind CSS, Context e i18n",
+  "getStarted": "Comenzar",
+  "learnMore": "Aprende más",
+  "features": {
+    "title": "Características",
+    "nextjs": "Next.js 15 con App Router",
+    "tailwind": "Tailwind CSS para estilos",
+    "context": "React Context para gestión de estado",
+    "i18n": "Soporte de internacionalización"
+  }
+}
