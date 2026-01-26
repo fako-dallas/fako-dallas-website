@@ -4,7 +4,8 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('home');
+  const { t: tCommon } = useTranslation('common');
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
@@ -24,7 +25,7 @@ export default function Home() {
           <div className="flex justify-center mb-12">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">
-                {t('changeLanguage')}
+                {tCommon('changeLanguage')}
               </h2>
               <LanguageSwitcher />
             </div>

@@ -1,10 +1,6 @@
 {
   "welcome": "Bienvenue à Fako Dallas",
   "description": "Un démarreur Next.js avec Tailwind CSS, Context et i18n",
-  "changeLanguage": "Changer de langue",
-  "home": "Accueil",
-  "about": "À propos",
-  "contact": "Contact",
   "getStarted": "Commencer",
   "learnMore": "En savoir plus",
   "features": {
