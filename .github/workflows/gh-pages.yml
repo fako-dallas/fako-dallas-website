@@ -5,6 +5,9 @@ on:
     branches:
       - main  
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Build Next.js (static export)
-        run: npm run build   # no more "export"
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
