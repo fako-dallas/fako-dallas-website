@@ -34,3 +34,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           destination_dir: pr-${{ github.event.pull_request.number }}
+      - name: Comment Preview URL on PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: preview-link
+          message: |
+            🚀 Preview available at:
+            https://fako-dallas.github.io/fako-dallas-website/pr-${{ github.event.pull_request.number }}/
