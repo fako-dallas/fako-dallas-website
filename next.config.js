@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true, 
   },
-  basePath: 'https://github.com/fako-dallas/fako-dallas-website',
+  basePath: '/fako-dallas-website',
 };
 
 module.exports = nextConfig;
