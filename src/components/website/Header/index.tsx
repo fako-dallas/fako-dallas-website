@@ -32,7 +32,7 @@ const Header = () => {
       <header
         className={`header top-0 left-0 z-40 flex w-full items-center ${
           sticky
-            ? "dark:bg-gray-dark dark:shadow-sticky-dark shadow-sticky fixed z-9999 bg-white/80 backdrop-blur-xs transition"
+            ? "shadow-sticky fixed z-9999 bg-white/80 backdrop-blur-xs transition"
             : "absolute bg-transparent"
         }`}
       >
@@ -93,8 +93,10 @@ const Header = () => {
                           href={menuItem.path}
                           className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
                             usePathName === menuItem.path
-                              ? "text-primary dark:text-white"
-                              : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                              ? "text-primary"
+                              : sticky
+                                ? "text-black hover:text-primary"
+                                : "text-white hover:text-primary"
                           }`}
                         >
                           {menuItem.title}
@@ -107,7 +109,7 @@ const Header = () => {
               <div className="flex items-center justify-end pr-16 lg:pr-0">
                 <Link
                   href="/signin"
-                  className="text-dark hidden px-7 py-3 text-base font-medium hover:opacity-70 md:block dark:text-white"
+                  className="text-white hidden px-7 py-3 text-base font-medium hover:opacity-70 md:block dark:text-white"
                 >
                   Sign In
                 </Link>
