@@ -25,7 +25,6 @@ const Header = () => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
 
-
   const usePathName = usePathname();
 
   return (
@@ -43,17 +42,16 @@ const Header = () => {
               <Link
                 href="/"
                 className={`header-logo block w-full ${
-                  sticky ? "py-5 lg:py-2" : "py-8"
+                  sticky ? "py-3 lg:py-2" : "py-4"
                 } `}
               >
                 <Image
                   src="/images/fakoDalasLogo.png"
                   alt="logo"
-                  width={100}
-                  height={20}
+                  width={90}
+                  height={15}
                   className=""
                 />
-             
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
@@ -91,16 +89,16 @@ const Header = () => {
                   <ul className="block lg:flex lg:space-x-12">
                     {menuData.map((menuItem, index) => (
                       <li key={index} className="group relative">
-                          <Link
-                            href={menuItem.path}
-                            className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                              usePathName === menuItem.path
-                                ? "text-primary dark:text-white"
-                                : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
-                            }`}
-                          >
-                            {menuItem.title}
-                          </Link>
+                        <Link
+                          href={menuItem.path}
+                          className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
+                            usePathName === menuItem.path
+                              ? "text-primary dark:text-white"
+                              : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                          }`}
+                        >
+                          {menuItem.title}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -119,8 +117,7 @@ const Header = () => {
                 >
                   Sign Up
                 </Link>
-                <div>
-                </div>
+                <div></div>
               </div>
             </div>
           </div>

@@ -1,11 +1,11 @@
 // Import all translations organized by namespace
-import commonEn from '@/locales/common/en.json';
-import commonEs from '@/locales/common/es.json';
-import commonFr from '@/locales/common/fr.json';
+import commonEn from "@/locales/common/en.json";
+import commonEs from "@/locales/common/es.json";
+import commonFr from "@/locales/common/fr.json";
 
-import homeEn from '@/locales/home/en.json';
-import homeEs from '@/locales/home/es.json';
-import homeFr from '@/locales/home/fr.json';
+import homeEn from "@/locales/home/en.json";
+import homeEs from "@/locales/home/es.json";
+import homeFr from "@/locales/home/fr.json";
 
 // Translation cache organized by namespace and locale
 type TranslationCache = Record<string, Record<string, Record<string, unknown>>>;
@@ -33,34 +33,36 @@ const translationCache: TranslationCache = {
 export const getTranslation = (
   locale: string,
   namespace: string,
-  key: string
+  key: string,
 ): string => {
   const translation = translationCache[namespace]?.[locale];
-  
+
   if (!translation) {
-    console.warn(`Translation not found for namespace: ${namespace}, locale: ${locale}`);
+    console.warn(
+      `Translation not found for namespace: ${namespace}, locale: ${locale}`,
+    );
     return key;
   }
-  
+
   // Support nested keys like "features.title"
-  const keys = key.split('.');
+  const keys = key.split(".");
   let value: Record<string, unknown> | string = translation;
-  
+
   for (const k of keys) {
-    if (typeof value === 'object' && value !== null) {
+    if (typeof value === "object" && value !== null) {
       value = value[k] as Record<string, unknown> | string;
     } else {
       return key;
     }
   }
-  
-  return typeof value === 'string' ? value : key;
+
+  return typeof value === "string" ? value : key;
 };
 
 export const availableLocales = [
-  { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' },
-  { code: 'fr', name: 'Français' },
+  { code: "en", name: "English" },
+  { code: "es", name: "Español" },
+  { code: "fr", name: "Français" },
 ];
 
 /**
@@ -69,9 +71,7 @@ export const availableLocales = [
  */
 export const registerNamespace = (
   namespace: string,
-  translations: Record<string, Record<string, unknown>>
+  translations: Record<string, Record<string, unknown>>,
 ): void => {
   translationCache[namespace] = translations;
 };
-
-

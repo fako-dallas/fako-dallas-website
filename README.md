@@ -22,17 +22,20 @@ A modern Next.js starter template with Tailwind CSS, React Context, and namespac
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/fako-dallas/fako-dallas-website.git
 cd fako-dallas-website
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -80,9 +83,9 @@ fako-dallas-website/
 The app uses React Context for state management. Access the context in any component:
 
 ```tsx
-'use client';
+"use client";
 
-import { useAppContext } from '@/context/AppContext';
+import { useAppContext } from "@/context/AppContext";
 
 export default function MyComponent() {
   const { locale, setLocale } = useAppContext();
@@ -99,15 +102,15 @@ The translation system is namespace-based, allowing each page or component to ha
 Use the `useTranslation` hook with a namespace parameter:
 
 ```tsx
-'use client';
+"use client";
 
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function MyComponent() {
   // Use translations from the 'home' namespace
-  const { t } = useTranslation('home');
-  
-  return <h1>{t('welcome')}</h1>;
+  const { t } = useTranslation("home");
+
+  return <h1>{t("welcome")}</h1>;
 }
 ```
 
@@ -116,18 +119,18 @@ export default function MyComponent() {
 You can use multiple namespaces in the same component:
 
 ```tsx
-'use client';
+"use client";
 
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function MyComponent() {
-  const { t } = useTranslation('home');
-  const { t: tCommon } = useTranslation('common');
-  
+  const { t } = useTranslation("home");
+  const { t: tCommon } = useTranslation("common");
+
   return (
     <div>
-      <h1>{t('welcome')}</h1>
-      <button>{tCommon('changeLanguage')}</button>
+      <h1>{t("welcome")}</h1>
+      <button>{tCommon("changeLanguage")}</button>
     </div>
   );
 }
@@ -179,7 +182,7 @@ const translationCache: TranslationCache = {
 4. Use the new namespace in your component:
 
 ```tsx
-const { t } = useTranslation('about');
+const { t } = useTranslation("about");
 ```
 
 ## Adding New Languages
@@ -192,8 +195,8 @@ const { t } = useTranslation('about');
 2. Import and add the language in `utils/translations.ts`:
 
 ```ts
-import commonDe from '@/locales/common/de.json';
-import homeDe from '@/locales/home/de.json';
+import commonDe from "@/locales/common/de.json";
+import homeDe from "@/locales/home/de.json";
 
 const translationCache: TranslationCache = {
   common: {
@@ -211,10 +214,10 @@ const translationCache: TranslationCache = {
 };
 
 export const availableLocales = [
-  { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' },
-  { code: 'fr', name: 'Français' },
-  { code: 'de', name: 'Deutsch' },
+  { code: "en", name: "English" },
+  { code: "es", name: "Español" },
+  { code: "fr", name: "Français" },
+  { code: "de", name: "Deutsch" },
 ];
 ```
 
@@ -231,6 +234,7 @@ export const availableLocales = [
 ### Tailwind CSS
 
 Customize Tailwind in `tailwind.config.js`:
+
 ```js
 module.exports = {
   theme: {
@@ -240,12 +244,13 @@ module.exports = {
       },
     },
   },
-}
+};
 ```
 
 ### Adding New Context State
 
 Extend the AppContext in `context/AppContext.tsx`:
+
 ```tsx
 interface AppContextType {
   locale: string;
@@ -265,6 +270,7 @@ interface AppContextType {
 ### Other Platforms
 
 Build the production bundle:
+
 ```bash
 npm run build
 npm run start
