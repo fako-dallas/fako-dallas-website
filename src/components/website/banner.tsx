@@ -1,34 +1,49 @@
+"use client"
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
+const images = [
+  "/images/group1.png",
+  "/images/group2.png",
+  "/images/group3.png",
+  "/images/group4.png",
+];
+
 const Banner = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000); // change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <section
         id="home"
         className="relative overflow-hidden pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
         style={{
-          backgroundImage: "url('/images/banner.jpg')",
+          backgroundImage: `url(${images[currentImage]})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          transition: "background-image 1s ease-in-out",
         }}
       >
-        {/* Overlay behind content */}
-        <div className="absolute inset-0 bg-black/70 "></div>
+        <div className="absolute inset-0 bg-black/70"></div>
 
-        {/* Content above overlay */}
         <div className="container relative z-10">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[800px] text-center">
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-                  Welcome to FakoDallas Community
+                  Welcome to Fako Dallas Association
                 </h1>
                 <p className="mb-12 text-base leading-relaxed text-white sm:text-lg md:text-xl">
-                  FakoDallas is a vibrant community of artists, creators, and
-                  enthusiasts dedicated to exploring the world of digital art
-                  and creativity. Join us to connect, share, and discover the
-                  endless possibilities of artistic expression in the digital
-                  realm.
+               A Legacy of Culture, Community, and Progress
+
                 </p>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link
@@ -55,7 +70,9 @@ const Decor = () => {
   return (
     <div>
       {" "}
-      <div className="absolute right-0 top-0 z-0 opacity-30 lg:opacity-100">        <svg
+      <div className="absolute right-0 top-0 z-0 opacity-30 lg:opacity-100">
+        {" "}
+        <svg
           width="450"
           height="556"
           viewBox="0 0 450 556"
@@ -187,7 +204,9 @@ const Decor = () => {
           </defs>
         </svg>
       </div>
-      <div className="absolute bottom-0 left-0 z-0 opacity-30 lg:opacity-100">        <svg
+      <div className="absolute bottom-0 left-0 z-0 opacity-30 lg:opacity-100">
+        {" "}
+        <svg
           width="364"
           height="201"
           viewBox="0 0 364 201"
@@ -250,9 +269,8 @@ const Decor = () => {
               y2="212.24"
               gradientUnits="userSpaceOnUse"
             >
-             <stop stopColor="#22c55e" />
-<stop offset="1" stopColor="#22c55e" stopOpacity="0" />
-
+              <stop stopColor="#22c55e" />
+              <stop offset="1" stopColor="#22c55e" stopOpacity="0" />
             </linearGradient>
             <linearGradient
               id="paint3_linear_25:218"

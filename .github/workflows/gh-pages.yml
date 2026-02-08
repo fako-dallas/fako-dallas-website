@@ -1,45 +1,45 @@
-name: Deploy to GitHub Pages
+# name: Deploy to GitHub Pages
 
-on:
-  pull_request:
-    branches:
-      - main  
+# on:
+#   pull_request:
+#     branches:
+#       - main  
 
-permissions:
-  contents: write
-  pull-requests: write
+# permissions:
+#   contents: write
+#   pull-requests: write
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.9.0
-          cache: "npm"
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 20.9.0
+#           cache: "npm"
 
-      - name: Install dependencies
-        run: npm install
+#       - name: Install dependencies
+#         run: npm install
 
-      - name: Build Next.js (static export)
-        run: npm run build
+#       - name: Build Next.js (static export)
+#         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          destination_dir: pr-${{ github.event.pull_request.number }}
+#       - name: Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./out
+#           destination_dir: pr-${{ github.event.pull_request.number }}
 
-      - name: Comment Preview URL on PR
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          header: preview-link
-          message: |
-            🚀 Preview available at:
-            https://fako-dallas.github.io/fako-dallas-website/pr-${{ github.event.pull_request.number }}/
+#       - name: Comment Preview URL on PR
+#         uses: marocchino/sticky-pull-request-comment@v2
+#         with:
+#           header: preview-link
+#           message: |
+#             🚀 Preview available at:
+#             https://fako-dallas.github.io/fako-dallas-website/pr-${{ github.event.pull_request.number }}/
